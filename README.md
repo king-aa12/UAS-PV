@@ -241,4 +241,4 @@ Bebas digunakan dan dikembangkan kembali untuk tujuan pendidikan.
 
 README ini menjelaskan penggunaan aplikasi baik dari sisi **source code** maupun **file executable (.exe)**. Dengan dokumentasi ini, pengguna dapat menjalankan, menginstal, dan memahami alur kerja aplikasi dengan mudah.
 
-Terima kasih telah menggunakan Aplikasi Penjualan Pulsa 🚀
+Terima kasih telah menggunakan Aplikasi Penjualan Pulsa 
