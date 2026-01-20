@@ -1,27 +1,27 @@
 # Aplikasi Penjualan Pulsa Desktop (PyQt5)
 
-README TERPADU – SOURCE CODE & FILE EXECUTABLE (.EXE)
+README – SOURCE CODE & FILE EXECUTABLE (.EXE)
 
 ---
 
-## 1. Pendahuluan
+## 1. Deskripsi Aplikasi
 
-Aplikasi Penjualan Pulsa adalah aplikasi desktop berbasis **Python** dan **PyQt5** yang digunakan untuk mencatat transaksi penjualan pulsa secara terkomputerisasi. Aplikasi ini membantu menghitung harga dan keuntungan secara otomatis, menyimpan data transaksi ke database, serta menampilkan laporan dalam bentuk tabel dan grafik.
+Aplikasi Penjualan Pulsa adalah aplikasi desktop berbasis **Python** dan **PyQt5** yang digunakan untuk mencatat transaksi penjualan pulsa secara otomatis. Aplikasi ini menyimpan data transaksi ke dalam database SQLite, menghitung harga dan keuntungan secara otomatis, serta menampilkan laporan dan grafik penjualan per provider.
 
-Aplikasi ini dikembangkan sebagai **Final Project Praktikum Pemrograman Visual** di Politeknik Negeri Pontianak.
+Aplikasi ini dibuat sebagai **Final Project Praktikum Pemrograman Visual**.
 
 ---
 
 ## 2. Masalah yang Diselesaikan
 
-Permasalahan yang sering terjadi pada penjualan pulsa manual:
+Permasalahan pada pencatatan manual penjualan pulsa:
 
 * Kesalahan perhitungan harga dan keuntungan
 * Data transaksi tidak tersimpan rapi
-* Sulit membuat rekap laporan
+* Sulit membuat laporan keuntungan
 * Tidak ada grafik perkembangan penjualan
 
-Aplikasi ini hadir untuk mengotomatisasi seluruh proses tersebut.
+Aplikasi ini mengotomatisasi seluruh proses transaksi dan pelaporan.
 
 ---
 
@@ -29,48 +29,47 @@ Aplikasi ini hadir untuk mengotomatisasi seluruh proses tersebut.
 
 ### 3.1 Transaksi Pulsa
 
-* Pilih provider
-* Input nomor HP (validasi 10–13 digit)
+* Pilih provider (Telkomsel, Indosat, XL, Axis, Three, Smartfren)
+* Input nomor HP dengan validasi (10–13 digit)
 * Pilih nominal pulsa
-* Hitung harga otomatis
-* Hitung keuntungan otomatis
-* Konfirmasi sebelum simpan
+* Harga otomatis (nominal + Rp3.000)
+* Konfirmasi sebelum transaksi disimpan
 
 ### 3.2 Data Transaksi
 
-* Menampilkan seluruh transaksi dalam tabel
+* Menampilkan riwayat transaksi dalam tabel
 * Data tersimpan permanen di database SQLite
+* Tabel tidak bisa diedit langsung
 
 ### 3.3 Laporan & Grafik
 
 * Total keuntungan keseluruhan
-* Rekap per provider
-* Grafik jumlah transaksi per provider
+* Rekap transaksi per provider
+* Grafik batang transaksi per provider
 
 ---
 
 ## 4. Teknologi yang Digunakan
 
-| Komponen       | Teknologi   |
-| -------------- | ----------- |
-| Bahasa         | Python 3.x  |
-| GUI Framework  | PyQt5       |
-| Grafik         | PyQtChart   |
-| Database       | SQLite      |
-| Packaging      | PyInstaller |
-| Sistem Operasi | Windows     |
+| Komponen      | Teknologi   |
+| ------------- | ----------- |
+| Bahasa        | Python 3.x  |
+| GUI Framework | PyQt5       |
+| Grafik        | PyQtChart   |
+| Database      | SQLite      |
+| Packaging     | PyInstaller |
+| OS            | Windows     |
 
 ---
 
-## 5. Struktur Folder Proyek
+## 5. Struktur File Proyek
 
 ```
 project/
 │
-├── main.py              # File utama program
-├── pulsa.db            # Database SQLite (otomatis dibuat)
+├── main.py              # Source code utama aplikasi
+├── pulsa.db            # Database SQLite (dibuat otomatis)
 ├── app_icon.ico        # Ikon aplikasi
-├── Inter-Regular.ttf   # Font (opsional)
 ├── README.md           # Dokumentasi proyek
 └── dist/
     └── AplikasiPenjualanPulsa.exe
@@ -80,7 +79,7 @@ project/
 
 ## 6. Cara Menjalankan dari SOURCE CODE
 
-### 6.1 Persiapan
+### 6.1 Persiapan Lingkungan
 
 Pastikan Python sudah terinstall:
 
@@ -88,7 +87,7 @@ Pastikan Python sudah terinstall:
 python --version
 ```
 
-### 6.2 Install Library
+### 6.2 Instal Library
 
 ```bash
 pip install pyqt5 pyqtchart
@@ -100,6 +99,8 @@ pip install pyqt5 pyqtchart
 python main.py
 ```
 
+Jika berhasil, jendela aplikasi akan muncul.
+
 ---
 
 ## 7. Cara Instal & Menjalankan FILE .EXE
@@ -108,8 +109,8 @@ Bagian ini digunakan jika aplikasi sudah dalam bentuk **file executable (.exe)**
 
 ### 7.1 Syarat Sistem
 
-* Sistem Operasi: Windows 10 / 11
-* Tidak memerlukan Python terinstall
+* Sistem Operasi: Windows 10 / Windows 11
+* Tidak memerlukan Python atau library tambahan
 
 ### 7.2 Cara Instal
 
@@ -120,8 +121,7 @@ Bagian ini digunakan jika aplikasi sudah dalam bentuk **file executable (.exe)**
    ```
 2. Letakkan di folder mana saja
 3. Klik dua kali file `.exe`
-
-Aplikasi siap digunakan tanpa instalasi tambahan.
+4. Aplikasi langsung berjalan
 
 ---
 
@@ -130,22 +130,22 @@ Aplikasi siap digunakan tanpa instalasi tambahan.
 ### 8.1 Melakukan Transaksi
 
 1. Buka aplikasi
-2. Pilih provider pulsa
-3. Masukkan nomor HP
-4. Pilih nominal pulsa
-5. Sistem menghitung harga otomatis
-6. Klik tombol **Proses / Simpan**
+2. Pilih **Provider**
+3. Masukkan **Nomor HP**
+4. Pilih **Nominal Pulsa**
+5. Sistem menampilkan harga otomatis
+6. Klik tombol **PROSES TRANSAKSI**
 7. Konfirmasi transaksi
 
-Data akan otomatis tersimpan.
+Data akan langsung tersimpan ke database.
 
 ---
 
 ### 8.2 Melihat Data Transaksi
 
 1. Buka tab **Data Transaksi**
-2. Semua transaksi akan tampil dalam tabel
-3. Data diambil langsung dari database
+2. Seluruh transaksi akan tampil dalam tabel
+3. Data diurutkan dari transaksi terbaru
 
 ---
 
@@ -154,9 +154,9 @@ Data akan otomatis tersimpan.
 1. Buka tab **Laporan**
 2. Lihat:
 
-   * Total keuntungan
-   * Rekap per provider
-   * Grafik transaksi
+   * Total keuntungan keseluruhan
+   * Rekap keuntungan per provider
+   * Grafik batang transaksi
 
 ---
 
@@ -174,6 +174,8 @@ Database menggunakan SQLite dengan tabel `transaksi`:
 | keuntungan | INTEGER | Keuntungan      |
 | tanggal    | TEXT    | Waktu transaksi |
 
+Database otomatis dibuat saat aplikasi pertama kali dijalankan.
+
 ---
 
 ## 10. Cara Membuat File Executable (.EXE)
@@ -190,7 +192,7 @@ pip install pyinstaller
 pyinstaller --noconsole --onefile --icon=app_icon.ico --name AplikasiPenjualanPulsa main.py
 ```
 
-File hasil build berada di:
+Hasil build berada di:
 
 ```
 dist/AplikasiPenjualanPulsa.exe
@@ -202,9 +204,9 @@ dist/AplikasiPenjualanPulsa.exe
 
 **Aplikasi tidak bisa dibuka**
 
-* Pastikan file `.exe` tidak terhapus antivirus
+* Pastikan file `.exe` tidak diblokir antivirus
 
-**Library tidak ditemukan saat run source**
+**Module PyQt5 tidak ditemukan**
 
 * Jalankan kembali:
 
@@ -220,7 +222,7 @@ dist/AplikasiPenjualanPulsa.exe
 
 ## 12. Identitas Pengembang
 
-* Nama  : Aria Pajarizki
+* Nama : Aria Pajarizki
 * Mata Kuliah : Praktikum Pemrograman Visual
 * Dosen : Safri Adam, S.Kom., M.Kom.
 * Institusi : Politeknik Negeri Pontianak
@@ -237,6 +239,6 @@ Bebas digunakan dan dikembangkan kembali untuk tujuan pendidikan.
 
 ## 14. Penutup
 
-Dokumentasi ini menjelaskan penggunaan aplikasi baik dari sisi **source code** maupun **file executable (.exe)**. Dengan README ini, pengguna dapat langsung menjalankan, menginstal, serta memahami alur kerja aplikasi dengan mudah.
+README ini menjelaskan penggunaan aplikasi baik dari sisi **source code** maupun **file executable (.exe)**. Dengan dokumentasi ini, pengguna dapat menjalankan, menginstal, dan memahami alur kerja aplikasi dengan mudah.
 
-Terima kasih telah menggunakan Aplikasi Penjualan Pulsa 
+Terima kasih telah menggunakan Aplikasi Penjualan Pulsa 🚀
