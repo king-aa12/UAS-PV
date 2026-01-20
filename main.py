@@ -1,8 +1,21 @@
-
 import sys
 import os
 import sqlite3
 import re
+
+def resource_path(relative_path):
+    """
+    Mendapatkan path absolut ke resource,
+    bekerja untuk mode development dan PyInstaller
+    """
+    try:
+        # PyInstaller membuat folder temp di _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
 from datetime import datetime
 
 from PyQt5.QtWidgets import (
